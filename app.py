@@ -9,12 +9,12 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 def webhook():
     user_msg = request.json['userRequest']['utterance']
 
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {
-            "role": "system",
-            "content": """
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "system",
+                "content": """
 너는 식자재 상담을 전문으로 하는 친절한 챗봇이야.
 아래 정보를 기반으로만 대답해야 해. 그 외 주제는 "죄송해요, 그에 대해서는 안내드릴 수 없습니다."라고 말해.
 
@@ -36,10 +36,11 @@ response = client.chat.completions.create(
 - 거세머리: 1kg당 발골 8,200원.
 - 소 부산물: 곱창, 대창, 천엽, 우설 등이 해당됨.
 """
-        },
-        {"role": "user", "content": user_msg}
-    ]
-)
+            },
+            {"role": "user", "content": user_msg}
+        ]
+    )
+
     answer = response.choices[0].message.content.strip()
 
     return jsonify({
