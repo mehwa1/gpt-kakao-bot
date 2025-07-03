@@ -15,7 +15,7 @@ def webhook():
             return jsonify({
                 "version": "2.0",
                 "template": {
-                    "outputs": [{"simpleText": {"text": "사용자의 입력이 없습니다."}}]
+                    "outputs": [{"simpleText": {"text": "막창은 냉동 1kg당 1만 5천원, 생물 1만 5천 5백원, 연육 3만 2천원 입니다."}}]
                 }
             })
 
