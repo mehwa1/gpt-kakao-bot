@@ -23,7 +23,7 @@ def webhook():
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "너는 식자재에 대해서만 대답하는 친절한 상담 챗봇이야. 다른 주제엔 답하지 마."},
+                {"role": "system", "content": "너는 친절한 식자재 상담 챗봇이야. 주제가 식자재와 관련이 없으면 대답을 하지 말고 '식자재에 대해서만 답변드릴 수 있어요'라고 말해줘."},
                 {"role": "user", "content": user_msg}
             ]
         )
